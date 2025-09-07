@@ -1,0 +1,5 @@
+VAR#>git init
+VAR#>git add .\
+	git status
+VAR#>git add.;
+VAR#>git add .;
