@@ -201,6 +201,18 @@ public class TelaInicial extends javax.swing.JFrame {
             new TelaInicial().setVisible(true);
         });  
     } 
+    
+    
+    public JButton getBotaoDeCalcular(){
+        return BotaoDeCalcular;
+    }
+    public JTextField getTxtIdade(){
+        return txtidade;
+    }
+    public JLabel getMensagem(){
+        return mensagem;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoDeCalcular;
