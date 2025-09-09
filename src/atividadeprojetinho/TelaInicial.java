@@ -4,23 +4,23 @@
  */
 package atividadeprojetinho;
 
-import static atividadeprojetinho.AtividadeProjetinho.calcularIdade;
-import static atividadeprojetinho.AtividadeProjetinho.maiorDeIdade;
-import static atividadeprojetinho.AtividadeProjetinho.terceiraIdade;
-import java.util.Scanner;
-//import javax.swing.*;
-
+import javax.swing.JLabel;
+import javax.swing.*;
 /**
  *
  * @author mathi
  */
 public class TelaInicial extends javax.swing.JFrame {
-
+    
+    public JLabel mensagem;
     /**
      * Creates new form TelaInicial
      */
     public TelaInicial() {
         initComponents();
+        mensagem = new JLabel("");
+        mensagem.setBounds(240,170,400,30);
+        add(mensagem);
     }
 
     /**
@@ -32,88 +32,139 @@ public class TelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        Titulo = new javax.swing.JLabel();
+        BotaoDeCalcular = new javax.swing.JButton();
+        txtidade = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                formComponentAdded(evt);
+            }
+        });
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
 
-        jLabel1.setText("Calculadora de Faixa Etária");
+        Titulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Titulo.setText("Calculadora de Faixa Etária");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Digite o ano de nascimento aqui:");
-        jScrollPane1.setViewportView(jTextArea1);
+        BotaoDeCalcular.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        BotaoDeCalcular.setText("Calcular");
+        BotaoDeCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoDeCalcularActionPerformed(evt);
+            }
+        });
+
+        txtidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidadeActionPerformed(evt);
+            }
+        });
+        txtidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtidadeKeyTyped(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Digite o ano do seu nascimento:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 162, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(213, 213, 213)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(175, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Titulo)
+                        .addGap(151, 151, 151))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(159, 159, 159))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(txtidade, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(211, 211, 211))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(BotaoDeCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(250, 250, 250))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(BotaoDeCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        int anoAtual = 2025;
-        Scanner teclado = new Scanner(System.in);
-        
-        System.out.println("Digite seu ano de nascimento aqui:");
-        int anoNas = teclado.nextInt();
-        
-        int idade = calcularIdade(anoNas, anoAtual);
-        
-        boolean maior = maiorDeIdade(idade);
-        boolean idoso = terceiraIdade(idade);
-        
-        if (maior == true){
-            System.out.println("Maior de idade");
-        }else if(idoso == true){
-            System.out.println("Idoso");
-        }else{
-            System.out.println("Menor de idade");
-        }
-        
-    } 
-    
-        //calcula a idade digitada
-    public static int calcularIdade(int anoNas, int anoAtual){
-            int idade = anoAtual - anoNas;
-            return idade;
-        }
-    
-    //verifica se o usuario é de maior
-    public static boolean maiorDeIdade(int idade){
-            if(idade >= 18 && idade<65){
-                return true;
+    private void BotaoDeCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoDeCalcularActionPerformed
+        // TODO add your handling code here:   Codigo para o botão q calcula a sua idade
+        try{
+            int anoAtual = 2025;
+            int anoNas = Integer.parseInt(txtidade.getText());
+            int idade = calcularIdade(anoNas, anoAtual);
+
+            String resultado;
+            if(idade<0 || idade > 123){
+                resultado = "Idade Inválida";
+            }else if(crianca(idade)){
+                resultado = "Criança, " + idade + " anos";
+            }else if(adolescente(idade)){
+                resultado = "Adoslecente, "+idade+" anos";
+            }else if(maiorDeIdade(idade)){
+                resultado = "Adulto, "+idade+" anos";
             }else{
-                return false;
+                resultado = "idoso, "+idade+" anos";
             }
+            mensagem.setText(resultado);
+ 
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Digite um número que seja valido");
+        } 
+    }//GEN-LAST:event_BotaoDeCalcularActionPerformed
+    public static int calcularIdade(int anoNas, int anoAtual){
+        int idade = anoAtual - anoNas;
+        return idade;
+    }
+    public static boolean crianca(int idade){
+        if(idade >=0 && idade <12){
+            return true;
+        }else{
+            return false;
         }
-    
-    //verifica se a pessoa ja é idosa e pode se aposentar
+    }
+    public static boolean adolescente(int idade){
+        if(idade >= 12 && idade < 21){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public static boolean maiorDeIdade(int idade){
+        if(idade >= 21 && idade<65){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public static boolean terceiraIdade(int idade){
         if(idade>=65){
             return true;
@@ -121,18 +172,41 @@ public class TelaInicial extends javax.swing.JFrame {
             return false;
         }
     }
-    
-    
-    private static void rodarTesteIntegracao(int anoNasc, int anoAtual, String esperado){
-        int idade = AtividadeProjetinho.calcularIdade(anoNasc, anoAtual);
-        String 
-    }
-}
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentHidden
 
+    private void formComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_formComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentAdded
+
+    private void txtidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidadeActionPerformed
+
+    private void txtidadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidadeKeyTyped
+        // TODO add your handling code here:
+        //String caracteres = "0123456789";
+        //if(!caracteres.contains(evt.getKeyChar()+"")){
+        //    evt.consume();
+        //}
+    }//GEN-LAST:event_txtidadeKeyTyped
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaInicial().setVisible(true);
+        });  
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoDeCalcular;
+    private javax.swing.JLabel Titulo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JTextField txtidade;
     // End of variables declaration//GEN-END:variables
 }
